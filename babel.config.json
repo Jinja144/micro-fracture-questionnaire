@@ -1,0 +1,41 @@
+{
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
+      ],
+      "plugins": [["@babel/plugin-transform-react-jsx"]]
+    },
+    "development": {
+      "presets": [
+        [
+          "next/babel",
+          {
+            "transform-runtime": {
+              "useESModules": false
+            }
+          }
+        ]
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "next/babel",
+          {
+            "transform-runtime": {
+              "useESModules": false
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
