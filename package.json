@@ -9,6 +9,7 @@
     "test": "jest --passWithNoTests",
     "watch": "jest --watch",
     "coverage": "jest --coverage",
+    "lint": "eslint '**/*.js' --fix",
     "js:prettier": "prettier --write '**/*.js'",
     "js:lint": "eslint '**/*.js' --cache",
     "styles:prettier": "prettier --write '**/*.scss'",
