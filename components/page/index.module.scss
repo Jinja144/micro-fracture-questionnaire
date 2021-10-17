@@ -1,26 +1,26 @@
 .container {
-    flex-wrap: wrap;
-    display: flex;
-    flex-direction: row;
-    margin: 10px;
-    justify-content: center;
-    max-width: 650px;
-    border: 1px solid #1e90ff;
-    border-radius: 21px;
-    padding: 12px;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  justify-content: center;
+  max-width: 650px;
+  border: 1px solid #1e90ff;
+  border-radius: 21px;
+  padding: 12px;
 }
 .text {
-    width: 100%;
-    text-align: center;
-    margin-top: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
 }
 .button {
-    width: 50%;
-    max-width: 200px;
-    margin-right: 5px;
-    border: 1px solid #1e90ff;
-    border-radius: 21px;
-    background-color: #9dc8f1;
+  width: 50%;
+  max-width: 200px;
+  margin-right: 5px;
+  border: 1px solid #1e90ff;
+  border-radius: 21px;
+  background-color: #9dc8f1;
 }
 .buttonFull {
   @extend .button;
