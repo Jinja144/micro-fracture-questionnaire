@@ -9,9 +9,17 @@
   border-radius: 21px;
   padding: 12px;
 }
-.text {
+.content {
   width: 100%;
   text-align: center;
+  margin-top: 0;
+}
+.contentAnswered {
+  @extend .content;
+
+  filter: grayscale(80%);
+}
+.text {
   margin-top: 0;
 }
 .button {
@@ -26,4 +34,11 @@
   @extend .button;
 
   margin: 0 auto;
+}
+.submitted {
+  @extend .button;
+
+  pointer-events: none;
+  border: 1px solid #55585c;
+  background-color: #acb5bd;
 }
