@@ -46,9 +46,7 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
           <span className={styles.titleLeft}>Least Clear</span>
           <span className={styles.titleMid}>to</span>
           <span className={styles.titleRight}>Most Clear</span>
-          <span className={firstImageIdClassList}>
-            1
-          </span>
+          <span className={firstImageIdClassList}>1</span>
           <input
             className={styles.inputLeast1}
             type="radio"
@@ -62,9 +60,7 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
             id="most"
             name="1"
           />
-          <span className={secondImageIdClassList}>
-            2
-          </span>
+          <span className={secondImageIdClassList}>2</span>
           <input
             className={styles.inputLeast2}
             type="radio"
@@ -78,9 +74,7 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
             id="most"
             name="2"
           />
-          <span className={thirdImageIdClassList}>
-            3
-          </span>
+          <span className={thirdImageIdClassList}>3</span>
           <input
             className={styles.inputLeast3}
             type="radio"
