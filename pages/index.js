@@ -16,19 +16,19 @@ export default function Home() {
       },
       {
         text: "Test images",
-        images: {
-          0: "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification1.png",
-          1: "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification2.png",
-          2: "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification3.png",
-        },
-        exprectedOrder: { 0: 1, 1: 2, 2: 3 }, // no idea if this is correct, check against images
-        answered: false,
+        images: [
+          "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification1.png",
+          "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification2.png",
+          "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification3.png",
+        ],
+        expectedOrder: { 0: 2, 1: 1, 2: 0 }, // no idea if this is correct, check against images
       },
     ],
     isTestPassed: false,
   };
   const [
     currentPage,
+    isTestPassed,
     nextPage,
     previousPage,
     updatePage,
@@ -55,10 +55,11 @@ export default function Home() {
       previousPage={previousPage}
       updatePage={updatePage}
       updateIsTestPassed={updateIsTestPassed}
+      isTestPassed={isTestPassed}
       text={currentPage.text}
       images={currentPage.images}
-      exprectedOrder={currentPage.exprectedOrder}
-      answered={currentPage.answered}
+      expectedOrder={currentPage.expectedOrder}
+      isAnswered={currentPage.isAnswered}
       isFirst={currentPage.isFirst}
       isLast={currentPage.isLast}
     />

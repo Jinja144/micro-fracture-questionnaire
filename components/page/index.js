@@ -1,39 +1,55 @@
 import React, { useState } from "react";
+import isAnswerValid from "../../validators/answer";
 import Question from "../question";
 import styles from "./index.module.scss";
 
 export default function Page({
   updatePage,
+  isTestPassed,
   updateIsTestPassed,
   previousPage,
   nextPage,
   text,
   images,
   expectedOrder,
-  answered,
+  isAnswered,
   isFirst,
   isLast,
 }) {
   const buttonStyles = isFirst || isLast ? styles.buttonFull : styles.button;
-  const contentContainerStyles = answered
+  const contentContainerStyles = isAnswered
     ? styles.contentAnswered
     : styles.content;
 
   let nextPageAction = nextPage;
   let [ranking, setRanking] = [{}, {}];
+  const [error, setError] = useState();
+
+  const doesAnswerPassTest = (expected, actual) => {
+    let isPassing = true;
+    Object.keys(expected).forEach((index) => {
+      if (expected[index] !== actual[index]) {
+        isPassing = false;
+      }
+    });
+
+    return isPassing;
+  };
 
   if (images) {
-    [ranking, setRanking] = useState({});
-    nextPageAction = answered
+    [ranking, setRanking] = useState([]);
+    nextPageAction = isAnswered
       ? nextPage
       : () => {
-          updatePage({ answered: true });
-          if (expectedOrder) {
-            updateIsTestPassed(expectedOrder === ranking);
-          } else {
-            // call api async to send data to aws
+          if (isAnswerValid(ranking, images, setError)) {
+            if (expectedOrder) {
+              updateIsTestPassed(doesAnswerPassTest(expectedOrder, ranking));
+            } else if (isTestPassed) {
+              // call api async to send data to aws
+            }
+            updatePage({ isAnswered: true });
+            nextPage();
           }
-          nextPage();
         };
   }
 
@@ -45,10 +61,12 @@ export default function Page({
           <Question
             images={images}
             ranking={ranking}
+            isAnswered={isAnswered}
             setRanking={setRanking}
           />
         ) : null}
       </div>
+      {error ? <p className={styles.error}>{error}</p> : null}
       {!isFirst ? (
         <button className={buttonStyles} type="button" onClick={previousPage}>
           Previous

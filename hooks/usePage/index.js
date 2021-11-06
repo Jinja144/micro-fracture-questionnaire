@@ -40,6 +40,7 @@ const usePage = (appInit) => {
   };
   return [
     page,
+    app.isTestPassed,
     getNextPage,
     getPreviousPage,
     updateCurrentPage,
