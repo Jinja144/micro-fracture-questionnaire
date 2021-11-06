@@ -1,28 +1,36 @@
 .container {
-  flex-wrap: wrap;
   display: flex;
   flex-direction: row;
-  margin: 10px;
+  flex-wrap: wrap;
   justify-content: center;
-  max-width: 650px;
+  margin: 10px;
+  padding: 12px;
+  // max-width: 650px;
   border: 1px solid #1e90ff;
   border-radius: 21px;
-  padding: 12px;
 }
-.content {
+
+%content-base {
   width: 100%;
-  text-align: center;
   margin-top: 0;
+  text-align: center;
 }
+
+.content {
+  @extend %content-base;
+}
+
 .contentAnswered {
-  @extend .content;
+  @extend %content-base;
 
   filter: grayscale(80%);
 }
+
 .text {
   margin-top: 0;
 }
-.button {
+
+%button-base {
   width: 50%;
   max-width: 200px;
   margin-right: 5px;
@@ -30,15 +38,13 @@
   border-radius: 21px;
   background-color: #9dc8f1;
 }
+
+.button {
+  @extend %button-base;
+}
+
 .buttonFull {
-  @extend .button;
+  @extend %button-base;
 
   margin: 0 auto;
-}
-.submitted {
-  @extend .button;
-
-  pointer-events: none;
-  border: 1px solid #55585c;
-  background-color: #acb5bd;
 }

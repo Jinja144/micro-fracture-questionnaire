@@ -21,7 +21,7 @@ export default function Home() {
           "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification2.png",
           "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification3.png",
         ],
-        expectedOrder: { 0: 2, 1: 1, 2: 0 }, // no idea if this is correct, check against images
+        expectedOrder: { 0: 1, 1: 0, 2: -1 }, // no idea if this is correct, check against images
       },
     ],
     isTestPassed: false,

@@ -46,6 +46,8 @@ export default function Page({
               updateIsTestPassed(doesAnswerPassTest(expectedOrder, ranking));
             } else if (isTestPassed) {
               // call api async to send data to aws
+              // key of ranking is image index
+              // value of ranking is rank, which goes from 0-2, this will need -1 to convert to -1 - 1 scale
             }
             updatePage({ isAnswered: true });
             nextPage();

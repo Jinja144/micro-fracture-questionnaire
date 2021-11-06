@@ -13,7 +13,7 @@
     "js:prettier": "prettier --write '**/*.js'",
     "js:lint": "eslint '**/*.js' --cache",
     "styles:prettier": "prettier --write '**/*.scss'",
-    "styles:lint": "stylelint '**/**.*.(scss|css)'",
+    "styles:lint": "stylelint '**/**.*.(scss|css)' --fix",
     "styles:lint:check": "stylelint-config-prettier-check",
     "prettier:all": "concurrently 'npm:js:prettier' 'npm:styles:prettier'",
     "testAndLint": "concurrently 'npm:test' 'npm:js:lint' 'npm:styles:lint'"

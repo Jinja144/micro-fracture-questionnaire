@@ -1,0 +1,138 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imageContainer {
+  width: 33%;
+}
+
+.image {
+  width: 100%;
+}
+
+.answerSection {
+  display: grid;
+  grid-template-rows: 30px 40px 40px 40px;
+  grid-template-columns: 30px 100px 40px 100px;
+  margin: 0 auto 20px;
+}
+
+%title {
+  grid-row-start: 1;
+}
+
+.titleLeft {
+  @extend %title;
+
+  grid-column-start: 2;
+}
+
+.titleMid {
+  @extend %title;
+
+  grid-column-start: 3;
+}
+
+.titleRight {
+  @extend %title;
+
+  grid-column-start: 4;
+}
+
+%input {
+  margin: auto;
+}
+
+%first-input-row {
+  grid-row-start: 2;
+}
+
+.inputImageId1 {
+  @extend %first-input-row;
+
+  grid-column-start: 1;
+}
+
+.inputLeast1 {
+  @extend %first-input-row;
+  @extend %input;
+
+  grid-column-start: 2;
+}
+
+.inputMid1 {
+  @extend %first-input-row;
+  @extend %input;
+
+  grid-column-start: 3;
+}
+
+.inputMost1 {
+  @extend %first-input-row;
+  @extend %input;
+
+  grid-column-start: 4;
+}
+
+%second-input-row {
+  grid-row-start: 3;
+}
+
+.inputImageId2 {
+  @extend %second-input-row;
+
+  grid-column-start: 1;
+}
+
+.inputLeast2 {
+  @extend %second-input-row;
+  @extend %input;
+
+  grid-column-start: 2;
+}
+
+.inputMid2 {
+  @extend %second-input-row;
+  @extend %input;
+
+  grid-column-start: 3;
+}
+
+.inputMost2 {
+  @extend %second-input-row;
+  @extend %input;
+
+  grid-column-start: 4;
+}
+
+%third-input-row {
+  grid-row-start: 4;
+}
+
+.inputImageId3 {
+  @extend %third-input-row;
+
+  grid-column-start: 1;
+}
+
+.inputLeast3 {
+  @extend %third-input-row;
+  @extend %input;
+
+  grid-column-start: 2;
+}
+
+.inputMid3 {
+  @extend %third-input-row;
+  @extend %input;
+
+  grid-column-start: 3;
+}
+
+.inputMost3 {
+  @extend %third-input-row;
+  @extend %input;
+
+  grid-column-start: 4;
+}
