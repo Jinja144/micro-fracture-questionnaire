@@ -37,7 +37,7 @@ export default function Home() {
   ] = usePage(app);
   const [isApiCalled, setIsApiCalled] = useState(false);
 
-  const getQuestionPages = async () => [{ text: "test page" }];
+  const getQuestionPages = async () => [{ text: "question data mocks need to be in this object" }];
 
   const callApiAndUpdatePages = async () => {
     setIsApiCalled(true);
