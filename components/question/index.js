@@ -31,7 +31,9 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
     <div className={styles.container} onChange={updateRanking}>
       {images.map((image, index) => (
         <div className={styles.imageContainer}>
-          <p>{index + 1}</p>
+          <div className={styles.imageIdContainer}>
+            <p className={styles.imageId}>{index + 1}</p>
+          </div>
           <img
             className={styles.image}
             src={image}
@@ -40,7 +42,7 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
         </div>
       ))}
       {isAnswered ? (
-        <p>Question has already been answered</p>
+        <p className={styles.answered}>Question has already been answered</p>
       ) : (
         <div className={styles.answerSection}>
           <span className={styles.titleLeft}>Least Clear</span>

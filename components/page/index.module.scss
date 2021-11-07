@@ -23,6 +23,7 @@
 .contentAnswered {
   @extend %content-base;
 
+  z-index: -1;
   filter: grayscale(80%);
 }
 
@@ -47,4 +48,10 @@
   @extend %button-base;
 
   margin: 0 auto;
+}
+
+.error {
+  width: 100%;
+  color: #ff0000;
+  text-align: center;
 }

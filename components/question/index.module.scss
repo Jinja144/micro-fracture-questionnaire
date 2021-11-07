@@ -4,11 +4,30 @@
 }
 
 .imageContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   width: 33%;
 }
 
+.imageIdContainer {
+  margin: 0;
+}
+
+.imageId {
+  display: inline;
+  border-bottom: 1px solid;
+}
+
 .image {
+  z-index: -1;
   width: 100%;
+  margin: -70px 0;
+}
+
+.answered {
+  width: 100%;
+  text-align: center;
 }
 
 .answerSection {

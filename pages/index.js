@@ -21,7 +21,7 @@ export default function Home() {
           "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification2.png",
           "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification3.png",
         ],
-        expectedOrder: { 0: 1, 1: 0, 2: -1 }, // no idea if this is correct, check against images
+        expectedOrder: { 0: 1, 1: 0, 2: -1 },
       },
     ],
     isTestPassed: false,
@@ -38,13 +38,25 @@ export default function Home() {
   const [isApiCalled, setIsApiCalled] = useState(false);
 
   const getQuestionPages = async () => [
-    { text: "question data mocks need to be in this object" },
+    {
+      text: "Test loaded images",
+      images: [
+        "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/1.png",
+        "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/2.png",
+        "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/3.png",
+      ],
+    },
   ];
 
   const callApiAndUpdatePages = async () => {
     setIsApiCalled(true);
-    const newPages = await getQuestionPages();
-    addPages(newPages);
+    const questionPages = await getQuestionPages();
+    addPages([
+      ...questionPages,
+      {
+        text: "Thanks for answering this questionaire",
+      },
+    ]);
   };
 
   useEffect(() => {

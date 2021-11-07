@@ -8,8 +8,7 @@
     "plugin:react/recommended",
     "plugin:jest/recommended",
     "airbnb",
-    "prettier",
-    "next"
+    "prettier"
   ],
   "ignorePatterns": ["**/jest/setupAfterEnv.js"],
   "parserOptions": {

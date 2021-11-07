@@ -43,7 +43,8 @@ export default function Page({
       : () => {
           if (isAnswerValid(ranking, images, setError)) {
             if (expectedOrder) {
-              updateIsTestPassed(doesAnswerPassTest(expectedOrder, ranking));
+              const testpassing = doesAnswerPassTest(expectedOrder, ranking);
+              updateIsTestPassed(testpassing);
             } else if (isTestPassed) {
               // call api async to send data to aws
               // key of ranking is image index
