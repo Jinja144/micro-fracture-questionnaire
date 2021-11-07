@@ -5,12 +5,8 @@
     "node": true
   },
   "extends": [
-    "plugin:react/recommended",
-    "plugin:jest/recommended",
-    "airbnb",
-    "prettier"
+    "next"
   ],
-  "ignorePatterns": ["**/jest/setupAfterEnv.js"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -18,9 +14,7 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["prettier"],
   "rules": {
-    "prettier/prettier": "error",
     "no-console": ["error", { "allow": ["warn", "error"] }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": "off",
@@ -35,10 +29,5 @@
   },
   "settings": {
     "import/core-modules": ["react", "enzyme"]
-  },
-  "overrides": [
-    {
-      "files": ["**/*.test.{js,jsx}"]
-    }
-  ]
+  }
 }

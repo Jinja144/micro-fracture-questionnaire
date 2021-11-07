@@ -6,17 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start -p $PORT",
-    "test": "jest --passWithNoTests",
-    "watch": "jest --watch",
-    "coverage": "jest --coverage",
-    "lint": "eslint '**/*.js' --fix",
-    "js:prettier": "prettier --write '**/*.js'",
-    "js:lint": "eslint '**/*.js' --cache",
-    "styles:prettier": "prettier --write '**/*.scss'",
-    "styles:lint": "stylelint '**/**.*.(scss|css)' --fix",
-    "styles:lint:check": "stylelint-config-prettier-check",
-    "prettier:all": "concurrently 'npm:js:prettier' 'npm:styles:prettier'",
-    "testAndLint": "concurrently 'npm:test' 'npm:js:lint' 'npm:styles:lint'"
+    "prepare": "husky install",
+    "lint": "next lint"
   },
   "dependencies": {
     "concurrently": "^6.0.0",
@@ -25,63 +16,7 @@
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.14",
-    "@babel/core": "^7.13.14",
-    "@babel/plugin-transform-react-jsx": "^7.13.12",
-    "@babel/preset-env": "^7.13.12",
-    "@babel/preset-react": "^7.13.13",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.0",
-    "babel-jest": "^27.1.1",
-    "eslint": "^7.23.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.2.0",
-    "eslint-import-resolver-webpack": "^0.13.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jest": "^24.3.5",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-react": "^7.23.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.2.5",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.1.1",
-    "lint-prepush": "^2.1.0",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "react-test-renderer": "^17.0.2",
-    "sass": "^1.32.11",
-    "sass-loader": "^11.0.1",
-    "stylelint": "^13.12.0",
-    "stylelint-config-css-modules": "^2.2.0",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-sass-guidelines": "^8.0.0",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-prettier": "^1.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "lint-prepush",
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "**.*.{scss, css}": [
-      "prettier --write",
-      "stylelint --fix"
-    ]
-  },
-  "lint-prepush": {
-    "base": "main",
-    "tasks": {
-      "*.js": [
-        "jest --findRelatedTests"
-      ]
-    }
+    "husky": "^7.0.4",
+    "sass": "^1.32.11"
   }
 }
