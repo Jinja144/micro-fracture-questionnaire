@@ -22,7 +22,7 @@ export default function Page({
     : styles.content;
 
   let nextPageAction = nextPage;
-  let [ranking, setRanking] = [{}, {}];
+  let [ranking, setRanking] = useState([]);
   const [error, setError] = useState();
 
   const doesAnswerPassTest = (expected, actual) => {
@@ -37,7 +37,6 @@ export default function Page({
   };
 
   if (images) {
-    [ranking, setRanking] = useState([]);
     nextPageAction = isAnswered
       ? nextPage
       : () => {

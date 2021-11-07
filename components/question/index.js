@@ -30,7 +30,7 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
   return (
     <div className={styles.container} onChange={updateRanking}>
       {images.map((image, index) => (
-        <div className={styles.imageContainer}>
+        <div key={index + 1} className={styles.imageContainer}>
           <div className={styles.imageIdContainer}>
             <p className={styles.imageId}>{index + 1}</p>
           </div>
