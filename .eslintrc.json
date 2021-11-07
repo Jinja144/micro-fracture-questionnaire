@@ -25,7 +25,8 @@
       }
     ],
     "import/no-extraneous-dependencies": ["error"],
-    "class-methods-use-this": ["error"]
+    "class-methods-use-this": ["error"],
+    "next/no-img-element": "off"
   },
   "settings": {
     "import/core-modules": ["react", "enzyme"]

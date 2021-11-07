@@ -3,12 +3,9 @@ module.exports = {
     "stylelint-config-standard",
     "stylelint-config-css-modules",
     "stylelint-config-sass-guidelines",
-    "stylelint-config-prettier",
-    "stylelint-prettier/recommended",
   ],
-  plugins: ["stylelint-order", "stylelint-prettier"],
+  plugins: ["stylelint-order"],
   rules: {
-    "prettier/prettier": true,
     "selector-class-pattern": "[a-z]+((d)|([A-Z0-9][a-z0-9]+))*([A-Z])?",
     "selector-no-qualifying-type": [true, { ignore: "attribute" }],
     "max-nesting-depth": [
