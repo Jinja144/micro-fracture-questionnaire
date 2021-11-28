@@ -8,9 +8,6 @@ on:
 jobs:
   deploy_source:
     name: build and deploy lambda
-    strategy:
-      matrix:
-        node-version: [12.x]
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -20,7 +17,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1
         with:
