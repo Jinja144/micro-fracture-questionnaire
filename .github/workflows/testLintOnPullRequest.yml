@@ -1,9 +1,13 @@
 name: Run tests and linters on each PR
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
-  testAndLint:
+  lintFrontEnd:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +29,11 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
     - name: Install dependencies
-      run: npm ci
-    - name: Run test and lint
-      run: npm run testAndLint
-
+      run: |
+        npm ci
+        cd front-end
+        npm ci
+    - name: Run lint
+      run:  |
+        cd front-end
+        npm run lint
