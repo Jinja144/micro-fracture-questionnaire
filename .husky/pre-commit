@@ -1,5 +1,8 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+npm i
+cd front-end
+npm i
 npm run lint:js:fix
 npm run lint:scss:fix

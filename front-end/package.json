@@ -1,0 +1,30 @@
+{
+  "name": "micro-fracture-questionnaire",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -p $PORT",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:scss": "stylelint '**/*.module.scss'",
+    "lint:scss:fix": "stylelint '**/*.module.scss' --fix",
+    "lint:js": "next lint",
+    "lint:js:fix": "next lint --fix"
+  },
+  "dependencies": {
+    "concurrently": "^6.0.0",
+    "next": "^12.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^12.0.3",
+    "sass": "^1.32.11",
+    "stylelint": "^14.0.1",
+    "stylelint-config-css-modules": "^2.3.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^23.0.0"
+  }
+}
