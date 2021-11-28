@@ -44,9 +44,10 @@ jobs:
           cd response-lambda
           npm ci
       - name: zip
-        uses: montudor/action-zip@v0.1.0
+        uses: papeloto/action-zip@v1
         with:
-          args: zip -qq -r ./response-lambda/bundle.zip ./response-lambda/.
+          files: response-lambda/index.js response-lambda/node-modules/ response-lambda/.env
+          dest: ./response-lambda/bundle.zip
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
