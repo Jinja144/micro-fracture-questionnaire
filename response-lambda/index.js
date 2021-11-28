@@ -11,9 +11,11 @@ const pool = new Pool({
 })
 
 export async function handler(event) {
+  const query = 'INSERT INTO public.responses("imageId", modifier, "passedTest", "sessionId") VALUES($1, $2, $3, $4) RETURNING *'
+  const values = ['1', 1, true, "abc123"]
   const client = await pool.connect();
   try {
-    const res = await client.query(q);
+    const res = await client.query(query, values);
     console.log(res);
   } catch (err) {
     console.log('Database ' + err);
