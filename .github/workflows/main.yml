@@ -12,6 +12,9 @@ jobs:
       matrix:
         node-version: [12.x]
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: response-lambda
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js
@@ -39,15 +42,12 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install dependencies
-        run: |
-          npm ci
-          cd response-lambda
-          npm ci
+        run: npm ci
       - name: zip
         uses: papeloto/action-zip@v1
         with:
-          files: response-lambda/index.js response-lambda/node-modules/ response-lambda/.env
-          dest: ./response-lambda/bundle.zip
+          files: index.js node-modules/ .env
+          dest: bundle.zip
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
@@ -55,4 +55,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-west-2
           function_name: micro-fracture-scan-questionnaire-response-save
-          zip_file: ./response-lambda/bundle.zip
+          zip_file: bundle.zip
