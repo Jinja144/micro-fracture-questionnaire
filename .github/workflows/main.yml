@@ -29,7 +29,10 @@ jobs:
           envkey_DB_DATABASE: ${{ secrets.DB_DATABASE }}
           envkey_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           envkey_DB_PORT: ${{ secrets.DB_PORT }}
-          directory: response-lambda/
+          file_name: .env.response-lambda
+      - name: Move created env file into correct directory and rename
+        run: |
+          mv ../.env.response-lambda .env
       - name: Cache node modules
         uses: actions/cache@v2
         env:
