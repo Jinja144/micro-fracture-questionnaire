@@ -1,6 +1,5 @@
 {
   "name": "micro-fracture-questionnaire-response-lambda",
-  "type": "module",
   "version": "0.0.1",
   "private": false,
   "dependencies": {
