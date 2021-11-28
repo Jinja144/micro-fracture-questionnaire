@@ -1,7 +1,8 @@
-require('dotenv').config()
-const pg = require('pg')
+import dotenv from 'dotenv';
+dotenv.config();
+import { Pool } from 'pg';
 
-const pool = new pg.Pool({
+const pool = new Pool({
   user: process.env.DB_USER,
   host: process.env.DB_HOST,
   database: process.env.DB_DATABASE,
@@ -9,14 +10,14 @@ const pool = new pg.Pool({
   port: process.env.DB_PORT
 })
 
-exports.handler = async (event) => {
+export async function handler(event) {
+  const client = await pool.connect();
   try {
-    const client = await pool.connect()
-    const res = await client.query(q)
-    console.log(res)
+    const res = await client.query(q);
+    console.log(res);
   } catch (err) {
-    console.log('Database ' + err)
+    console.log('Database ' + err);
   } finally {
-    client.release()
+    client.release();
   }
-};
+}
