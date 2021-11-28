@@ -42,12 +42,14 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          ls -la
       - name: zip
         uses: papeloto/action-zip@v1
         with:
           files: index.js node-modules/ .env
-          dest: bundle.zip
+          dest: ./bundle.zip
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
@@ -55,4 +57,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-west-2
           function_name: micro-fracture-scan-questionnaire-response-save
-          zip_file: bundle.zip
+          zip_file: ./bundle.zip
