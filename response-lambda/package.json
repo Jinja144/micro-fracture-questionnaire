@@ -1,0 +1,9 @@
+{
+  "name": "micro-fracture-questionnaire-response-lambda",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "pg": "^8.7.1"
+  }
+}
