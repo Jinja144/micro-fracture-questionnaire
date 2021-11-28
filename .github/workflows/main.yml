@@ -29,7 +29,7 @@ jobs:
           envkey_DB_DATABASE: ${{ secrets.DB_DATABASE }}
           envkey_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           envkey_DB_PORT: ${{ secrets.DB_PORT }}
-          directory: response-lambda
+          directory: ./response-lambda
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -46,10 +46,12 @@ jobs:
         run: |
           npm ci
           ls -la
+          cd ..
+          ls -la
       - name: zip
         uses: papeloto/action-zip@v1
         with:
-          files: ./response-lambda/index.js ./response-lambda/node-modules/ ./response-lambda/.env
+          files: ./response-lambda/index.js ./response-lambda/node-modules ./response-lambda/.env
           dest: ./response-lambda/bundle.zip
       - name: default deploy
         uses: appleboy/lambda-action@master
