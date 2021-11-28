@@ -29,6 +29,7 @@ jobs:
           envkey_DB_DATABASE: ${{ secrets.DB_DATABASE }}
           envkey_DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
           envkey_DB_PORT: ${{ secrets.DB_PORT }}
+          directory: response-lambda
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -48,8 +49,8 @@ jobs:
       - name: zip
         uses: papeloto/action-zip@v1
         with:
-          files: index.js node-modules/ .env
-          dest: ./bundle.zip
+          files: ./response-lambda/index.js ./response-lambda/node-modules/ ./response-lambda/.env
+          dest: ./response-lambda/bundle.zip
       - name: default deploy
         uses: appleboy/lambda-action@master
         with:
@@ -57,4 +58,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-west-2
           function_name: micro-fracture-scan-questionnaire-response-save
-          zip_file: ./bundle.zip
+          zip_file: ./response-lambda/bundle.zip
