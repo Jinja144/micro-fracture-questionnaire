@@ -1,5 +1,10 @@
 name: deploy to lambda
-on: [push]
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   deploy_source:
     name: build and deploy lambda
@@ -48,3 +53,4 @@ jobs:
           aws_region: eu-west-2
           function_name: micro-fracture-scan-questionnaire-response-save
           zip_file: ./response-lambda/bundle.zip
+          
