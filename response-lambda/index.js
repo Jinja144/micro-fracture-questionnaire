@@ -10,13 +10,16 @@ const pool = new Pool({
 });
 
 exports.handler = async (event) => {
-  const { imageId, modifier, passedTest, sessionId } = event.body;
-  const query = 'INSERT INTO public.responses("imageId", modifier, "passedTest", "sessionId") VALUES($1, $2, $3, $4) RETURNING *';
-  const values = [imageId, modifier, passedTest, sessionId];
-  const client = await pool.connect();
+  let client;
   try {
-    const res = await client.query(query, values);
-    console.log(res);
+    client = await pool.connect();
+    for (var i = 0; i < event?.Records?.length; i++) {
+      const record = event?.Records[i]
+      const { imageId, modifier, passedTest, sessionId } = JSON.parse(record.body);
+      const query = 'INSERT INTO public.responses("imageId", modifier, "passedTest", "sessionId") VALUES($1, $2, $3, $4) RETURNING *';
+      const values = [imageId, modifier, passedTest, sessionId];
+      await client.query(query, values);
+    }
   } catch (err) {
     console.log('Database ' + err);
   } finally {
