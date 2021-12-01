@@ -1,5 +1,6 @@
 import { SQSClient } from "@aws-sdk/client-sqs";
 import { SendMessageCommand } from "@aws-sdk/client-sqs";
+import { v4 as uuidv4 } from 'uuid';
 
 export default async function handler(req, res) {
   const {
@@ -22,7 +23,7 @@ export default async function handler(req, res) {
       },
     },
     MessageBody: JSON.stringify({ imageId, modifier, passedTest, sessionId }),
-    MessageDeduplicationId: new UUID,
+    MessageDeduplicationId: uuidv4(),
     MessageGroupId: sessionId,
     QueueUrl: url
   };

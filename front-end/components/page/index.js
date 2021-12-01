@@ -42,24 +42,25 @@ export default function Page({
     nextPageAction = isAnswered
       ? nextPage
       : () => {
-          if (isAnswerValid(ranking, images, setError)) {
-            if (expectedOrder) {
-              const testpassing = doesAnswerPassTest(expectedOrder, ranking);
-              updateIsTestPassed(testpassing);
-            } else {
-              for (let index = 0; index < ranking.length; index++) {
-                const rankData = ranking[index];
-                const imageIndex = Object.keys(rankData)[0]
-                const imageSrc = images[imageIndex]
-                const rank = rankData[imageIndex]
+        if (isAnswerValid(ranking, images, setError)) {
+          if (expectedOrder) {
+            const testpassing = doesAnswerPassTest(expectedOrder, ranking);
+            updateIsTestPassed(testpassing);
+          } else {
+            console.log("sending rankings: ", ranking)
+            const imageIndexes = Object.keys(ranking)
+            for (let index = 0; index < imageIndexes.length; index++) {
+              const imageIndex = imageIndexes[index];
+              const imageSrc = images[imageIndex]
+              const rank = ranking[imageIndex]
 
-                sendMessage(imageSrc, rank, isTestPassed, sessionId)
-              }
+              sendMessage(imageSrc, rank, isTestPassed, sessionId)
             }
-            updatePage({ isAnswered: true });
-            nextPage();
           }
-        };
+          updatePage({ isAnswered: true });
+          nextPage();
+        }
+      };
   }
 
   return (
