@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Page from "../components/page";
 import usePage from "../hooks/usePage";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
   const app = {
@@ -36,6 +37,7 @@ export default function Home() {
     addPages,
   ] = usePage(app);
   const [isApiCalled, setIsApiCalled] = useState(false);
+  const sessionId = uuidv4()
 
   const getQuestionPages = async () => [
     {
@@ -76,6 +78,7 @@ export default function Home() {
       isAnswered={currentPage.isAnswered}
       isFirst={currentPage.isFirst}
       isLast={currentPage.isLast}
+      sessionId={sessionId}
     />
   );
 }

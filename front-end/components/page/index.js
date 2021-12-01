@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import isAnswerValid from "../../validators/answer";
 import Question from "../question";
 import styles from "./index.module.scss";
+import sendMessage from "../../http/nextAPI/sendResponse";
 
 export default function Page({
   updatePage,
@@ -15,6 +16,7 @@ export default function Page({
   isAnswered,
   isFirst,
   isLast,
+  sessionId
 }) {
   const buttonStyles = isFirst || isLast ? styles.buttonFull : styles.button;
   const contentContainerStyles = isAnswered
@@ -44,10 +46,15 @@ export default function Page({
             if (expectedOrder) {
               const testpassing = doesAnswerPassTest(expectedOrder, ranking);
               updateIsTestPassed(testpassing);
-            } else if (isTestPassed) {
-              // call api async to send data to aws
-              // key of ranking is image index
-              // value of ranking is rank, which goes from 0-2, this will need -1 to convert to -1 - 1 scale
+            } else {
+              for (let index = 0; index < ranking.length; index++) {
+                const rankData = ranking[index];
+                const imageIndex = Object.keys(rankData)[0]
+                const imageSrc = images[imageIndex]
+                const rank = rankData[imageIndex]
+
+                sendMessage(imageSrc, rank, isTestPassed, sessionId)
+              }
             }
             updatePage({ isAnswered: true });
             nextPage();
