@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Page from "../components/page";
 import usePage from "../hooks/usePage";
 import { v4 as uuidv4 } from 'uuid';
+import createQuestionPages from "../factories/questionPages";
 
 export default function Home() {
   const app = {
@@ -36,23 +37,12 @@ export default function Home() {
     updateIsTestPassed,
     addPages,
   ] = usePage(app);
-  const [isApiCalled, setIsApiCalled] = useState(false);
+  const [areQuestionsAdded, setAreQuestionsAdded] = useState(false);
   const sessionId = uuidv4()
 
-  const getQuestionPages = async () => [
-    {
-      text: "Test loaded images",
-      images: [
-        "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/1.png",
-        "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/2.png",
-        "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/3.png",
-      ],
-    },
-  ];
-
-  const callApiAndUpdatePages = async () => {
-    setIsApiCalled(true);
-    const questionPages = await getQuestionPages();
+  const createQuestionsAndUpdatePages = async () => {
+    setAreQuestionsAdded(true);
+    const questionPages = createQuestionPages();
     addPages([
       ...questionPages,
       {
@@ -62,7 +52,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (!isApiCalled) callApiAndUpdatePages();
+    if (!areQuestionsAdded) createQuestionsAndUpdatePages();
   });
   return (
     <Page
