@@ -47,7 +47,6 @@ export default function Page({
             const testpassing = doesAnswerPassTest(expectedOrder, ranking);
             updateIsTestPassed(testpassing);
           } else {
-            console.log("sending rankings: ", ranking)
             const imageIndexes = Object.keys(ranking)
             for (let index = 0; index < imageIndexes.length; index++) {
               const imageIndex = imageIndexes[index];

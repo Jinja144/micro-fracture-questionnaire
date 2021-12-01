@@ -2,7 +2,6 @@ import axios from "axios"
 export default async function sendMessage(imageSrc, modifier, passedTest, sessionId) {
   const trimmedUrl = imageSrc.replace(".png", "")
   const imageId = trimmedUrl.match(/[0-9]+$/)[0]
-  console.log("sending message: ", imageId, modifier, passedTest, sessionId)
   try {
     axios.post("/api/sendResponse",
       {
@@ -10,6 +9,6 @@ export default async function sendMessage(imageSrc, modifier, passedTest, sessio
       }
     );
   } catch (err) {
-    console.log(err)
+    // should really do something with this
   }
 }
