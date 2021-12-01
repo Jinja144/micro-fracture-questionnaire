@@ -29,10 +29,8 @@ export default async function handler(req, res) {
 
   try {
     const data = await sqsClient.send(new SendMessageCommand(params));
-    console.log("Success, message sent. MessageID:", data.MessageId);
     res.status(200);
   } catch (err) {
-    console.log("Error", err);
     res.status(400);
   }
 
