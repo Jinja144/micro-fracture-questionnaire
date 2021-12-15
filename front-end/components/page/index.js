@@ -65,7 +65,6 @@ export default function Page({
   return (
     <div className={styles.container}>
       <div className={contentContainerStyles}>
-        {text ? <p className={styles.text}>{text}</p> : null}
         {images ? (
           <Question
             images={images}
@@ -74,6 +73,7 @@ export default function Page({
             setRanking={setRanking}
           />
         ) : null}
+        {text ? <p className={styles.text}>{text}</p> : null}
       </div>
       {error ? <p className={styles.error}>{error}</p> : null}
       {!isFirst ? (

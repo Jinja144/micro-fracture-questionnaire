@@ -1,14 +1,14 @@
 const areImageRatingsUnique = (ratings) => {
-  const givenRatings = [];
-  let isValid = true;
-  Object.values(ratings).forEach((rating) => {
-    if (givenRatings.indexOf(rating) === -1) {
+  const givenRatings = []; // [imageId => rating, 1 => 0, 2 => -1]
+  Object.keys(ratings).forEach((image) => {
+    const rating = ratings[image]
+    if (rating === 0 || givenRatings.indexOf(rating) === -1) {
       givenRatings.push(rating);
     } else {
-      isValid = false;
+      return false;
     }
   });
-  return isValid;
+  return true;
 };
 
 const isAnswerValid = (answer, images, setError) => {
@@ -18,7 +18,7 @@ const isAnswerValid = (answer, images, setError) => {
   }
 
   if (!areImageRatingsUnique(answer)) {
-    setError("Please give each image a unique rating before continuing");
+    setError("Only 1 image can be the most/least clear");
     return false;
   }
 
