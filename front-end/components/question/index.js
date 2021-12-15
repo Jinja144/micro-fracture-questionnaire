@@ -16,7 +16,7 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
       for (let index = 0; index < inputElements.length; index += 1) {
         const inputElement = inputElements[index];
         if (inputElement.checked) {
-          const imageIndex = imageReferenceMap.findIndex(imageRef);
+          const imageIndex = imageReferenceMap.indexOf(imageRef);
           update = { ...update, [imageIndex]: index - 1 }; // -1 converts it from 0-2 scale to -1 - 1;
         }
       }

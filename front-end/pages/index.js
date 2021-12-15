@@ -36,6 +36,7 @@ export default function Home() {
     updatePage,
     updateIsTestPassed,
     addPages,
+    progress
   ] = usePage(app);
   const [areQuestionsAdded, setAreQuestionsAdded] = useState(false);
   const sessionId = uuidv4()
@@ -69,6 +70,7 @@ export default function Home() {
       isFirst={currentPage.isFirst}
       isLast={currentPage.isLast}
       sessionId={sessionId}
+      progress={areQuestionsAdded ? progress : 0}
     />
   );
 }

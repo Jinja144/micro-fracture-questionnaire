@@ -3,6 +3,7 @@ import isAnswerValid from "../../validators/answer";
 import Question from "../question";
 import styles from "./index.module.scss";
 import sendMessage from "../../http/nextAPI/sendResponse";
+import ProgressBar from "../progressBar";
 
 export default function Page({
   updatePage,
@@ -16,7 +17,8 @@ export default function Page({
   isAnswered,
   isFirst,
   isLast,
-  sessionId
+  sessionId,
+  progress
 }) {
   const buttonStyles = isFirst || isLast ? styles.buttonFull : styles.button;
   const contentContainerStyles = isAnswered
@@ -86,6 +88,7 @@ export default function Page({
           Next
         </button>
       ) : null}
+      <ProgressBar progress={progress} />
     </div>
   );
 }

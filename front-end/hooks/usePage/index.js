@@ -32,12 +32,18 @@ const usePage = (appInit) => {
     updateCurrentPageIndex(currentPageIndex - 1);
   };
 
+  const getProgress = () => {
+    return (currentPageIndex + 1) / app.pages.length
+  }
+
   const page = {
     ...app.pages[currentPageIndex],
     key: currentPageIndex,
     isFirst: currentPageIndex === 0,
     isLast: currentPageIndex === app.pages.length - 1,
   };
+
+  const progress = getProgress()
   return [
     page,
     app.isTestPassed,
@@ -46,6 +52,7 @@ const usePage = (appInit) => {
     updateCurrentPage,
     updateTestPassed,
     addPages,
+    progress
   ];
 };
 

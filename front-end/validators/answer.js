@@ -1,14 +1,15 @@
 const areImageRatingsUnique = (ratings) => {
   const givenRatings = []; // [imageId => rating, 1 => 0, 2 => -1]
+  let isValid = true;
   Object.keys(ratings).forEach((image) => {
     const rating = ratings[image]
     if (rating === 0 || givenRatings.indexOf(rating) === -1) {
       givenRatings.push(rating);
     } else {
-      return false;
+      isValid = false;
     }
   });
-  return true;
+  return isValid;
 };
 
 const isAnswerValid = (answer, images, setError) => {
