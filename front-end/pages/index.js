@@ -39,7 +39,7 @@ export default function Home() {
     progress
   ] = usePage(app);
   const [areQuestionsAdded, setAreQuestionsAdded] = useState(false);
-  const sessionId = uuidv4()
+  const [sessionId,] = useState(uuidv4());
 
   const createQuestionsAndUpdatePages = async () => {
     setAreQuestionsAdded(true);
