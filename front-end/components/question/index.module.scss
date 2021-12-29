@@ -11,6 +11,7 @@
   -webkit-overflow-scrolling: touch;
   min-width: 85vw;
   scroll-snap-type: x mandatory;
+  margin: 0 auto 10px;
 
   /* Remove scrollbar from view */
   -ms-overflow-style: none;  /* IE and Edge */
@@ -22,7 +23,6 @@
   @media (min-width: 1024px) {
     overflow-x: hidden;
     min-width: unset;
-    margin: 0 auto;
     scroll-snap-type: none;
   }
 }

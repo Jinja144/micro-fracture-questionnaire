@@ -8,16 +8,16 @@ export default function Home() {
   const app = {
     pages: [
       {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac lorem vestibulum, convallis tellus id, fringilla tellus. Aenean eget varius est. Nulla facilisi. Quisque vehicula id lacus in consequat. Praesent vel porta urna. Donec vitae nulla ut sem faucibus vehicula. Suspendisse vitae facilisis mauris, vel aliquet enim. Nunc sodales, metus vitae pellentesque fermentum, tortor ex molestie elit, a pulvinar ante elit id ipsum. Curabitur venenatis et eros eu vestibulum. Maecenas vitae leo non risus varius eleifend. In quis aliquet neque. Mauris sagittis mi vel sagittis placerat.",
+        text: "Endoresed by\n![British Institute of Non-destructuve Testing](logo.png)\nWelcome!\nThank you for participating in this questionnaire.It will take less that 5 minutes and no personal data is collected.",
       },
       {
-        text: "Vivamus quis magna tellus. Sed pellentesque mattis lorem, sit amet sagittis ligula ultrices ut. Maecenas ut enim cursus, tincidunt nisi eu, lacinia ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Integer sed turpis lobortis, placerat dui a, pulvinar nisi. Fusce in porta felis. Sed porta nunc et ex cursus, sed suscipit tortor placerat. Duis finibus tempus maximus. Maecenas nec tincidunt turpis. Aliquam erat volutpat. Integer nec nibh quis velit ullamcorper convallis.",
+        text: "Instructions\nYou will be shown various real images of inspections performed on welds.\nPlease identify in which image the flaws appear the **strongest** and in which they appear the **weakest**.",
       },
       {
-        text: "Vestibulum ultricies tempus porta. In nisi elit, lacinia id efficitur ut, tristique eu quam. Donec ultrices sodales quam ut viverra. In quis risus hendrerit urna ullamcorper suscipit sit amet a est. Curabitur nisl metus, convallis vel erat ut, eleifend tincidunt metus. Aenean non enim vitae neque pulvinar tempus ut at lectus. Nam egestas tempor turpis sed laoreet.",
+        text: "Instructions\nPlease identify in which image the flaws appear the **strongest** and in which they appear the **weakest**.\nBy strongest, this means the image in which you think the flaws stand out the most (i.e.have the highest signal- to - noise ratio).",
       },
       {
-        text: "Test images",
+        text: "Example\nThe flaws in Image B appear the strongest. The flaws in Image C appear the weakest.",
         images: [
           "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification1.png",
           "https://micro-fracture-scan-questionnaire-images.s3.eu-west-2.amazonaws.com/Qualification2.png",
@@ -47,7 +47,7 @@ export default function Home() {
     addPages([
       ...questionPages,
       {
-        text: "Thanks for answering this questionaire",
+        text: "Endoresed by\n![British Institute of Non-destructuve Testing](logo.png)\nThank you for participating!\nYour response will be used to help develop our understanding of human vision within NDT and how humans interpret flaw responses.No personal data was collected.\nPlease share this with your NDT colleagues. The more responses we have, the more confident our findings will be.",
       },
     ]);
   };
