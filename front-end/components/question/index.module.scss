@@ -11,17 +11,32 @@
   -webkit-overflow-scrolling: touch;
   min-width: 85vw;
   scroll-snap-type: x mandatory;
-  scroll-padding: 50%;
+  /* Remove scrollbar from view */
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   &::-webkit-scrollbar {
     display: none;
+  } /* Chrome and other webkit browsers */
+
+  @media (min-width: 1024px) {
+    overflow-x: hidden;
+    scroll-snap-type: none;
+    margin: 0 auto;
+    min-width: unset;
   }
 }
 
 .imageContainer {
   position: relative;
   scroll-snap-align: center;
+
+  &:first-of-type {
+    margin-left: 20px;
+  }
+
+  &:last-of-type {
+    margin-right: 20px;
+  }
 }
 
 .imageIdContainer {
@@ -36,8 +51,19 @@
 
 .image {
   z-index: -1;
-  width: 80vw;
+  width: auto;
+  height: 400px;
   margin: -15% 0 -20%;
+
+  @media (min-width: 375px) {
+    height: 500px;
+  }
+  @media (min-width: 425px) {
+    height: 600px;
+  }
+  @media (min-width: 1024px) {
+    height: 500px;
+  }
 }
 
 .answered {

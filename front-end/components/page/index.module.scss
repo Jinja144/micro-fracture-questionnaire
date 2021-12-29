@@ -26,13 +26,13 @@
 }
 
 .text {
-  margin-top: 0;
+  margin: 0 0 10px;
 }
 
 %button-base {
-  width: 50%;
+  width: 49.5%;
   max-width: 200px;
-  margin-right: 5px;
+  margin-right: 1%;
   border: 1px solid #1e90ff;
   border-radius: 21px;
   background-color: #9dc8f1;
@@ -40,11 +40,16 @@
 
 .button {
   @extend %button-base;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 }
 
 .buttonFull {
   @extend %button-base;
 
+  width: 50%;
   margin: 0 auto;
 }
 
