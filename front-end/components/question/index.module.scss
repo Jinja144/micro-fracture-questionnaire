@@ -1,13 +1,27 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.questions {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  min-width: 85vw;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 50%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .imageContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 33%;
+  position: relative;
+  scroll-snap-align: center;
 }
 
 .imageIdContainer {
@@ -15,14 +29,15 @@
 }
 
 .imageId {
+  position: relative;
   display: inline;
   border-bottom: 1px solid;
 }
 
 .image {
   z-index: -1;
-  width: 100%;
-  margin: -70px 0;
+  width: 80vw;
+  margin: -15% 0 -20%;
 }
 
 .answered {
@@ -33,7 +48,8 @@
 .answerSection {
   display: grid;
   grid-template-rows: 30px 40px 40px 40px;
-  grid-template-columns: 30px 100px 40px 100px;
+  grid-template-columns: 1fr 30px 100px 40px 100px 1fr;
+  width: 100%;
   margin: 0 auto 20px;
 }
 
@@ -44,19 +60,19 @@
 .titleLeft {
   @extend %title;
 
-  grid-column-start: 2;
+  grid-column-start: 3;
 }
 
 .titleMid {
   @extend %title;
 
-  grid-column-start: 3;
+  grid-column-start: 4;
 }
 
 .titleRight {
   @extend %title;
 
-  grid-column-start: 4;
+  grid-column-start: 5;
 }
 
 %input {
@@ -70,28 +86,28 @@
 .inputImageId1 {
   @extend %first-input-row;
 
-  grid-column-start: 1;
+  grid-column-start: 2;
 }
 
 .inputLeast1 {
   @extend %first-input-row;
   @extend %input;
 
-  grid-column-start: 2;
+  grid-column-start: 3;
 }
 
 .inputMid1 {
   @extend %first-input-row;
   @extend %input;
 
-  grid-column-start: 3;
+  grid-column-start: 4;
 }
 
 .inputMost1 {
   @extend %first-input-row;
   @extend %input;
 
-  grid-column-start: 4;
+  grid-column-start: 5;
 }
 
 %second-input-row {
@@ -101,28 +117,28 @@
 .inputImageId2 {
   @extend %second-input-row;
 
-  grid-column-start: 1;
+  grid-column-start: 2;
 }
 
 .inputLeast2 {
   @extend %second-input-row;
   @extend %input;
 
-  grid-column-start: 2;
+  grid-column-start: 3;
 }
 
 .inputMid2 {
   @extend %second-input-row;
   @extend %input;
 
-  grid-column-start: 3;
+  grid-column-start: 4;
 }
 
 .inputMost2 {
   @extend %second-input-row;
   @extend %input;
 
-  grid-column-start: 4;
+  grid-column-start: 5;
 }
 
 %third-input-row {
@@ -132,26 +148,26 @@
 .inputImageId3 {
   @extend %third-input-row;
 
-  grid-column-start: 1;
+  grid-column-start: 2;
 }
 
 .inputLeast3 {
   @extend %third-input-row;
   @extend %input;
 
-  grid-column-start: 2;
+  grid-column-start: 3;
 }
 
 .inputMid3 {
   @extend %third-input-row;
   @extend %input;
 
-  grid-column-start: 3;
+  grid-column-start: 4;
 }
 
 .inputMost3 {
   @extend %third-input-row;
   @extend %input;
 
-  grid-column-start: 4;
+  grid-column-start: 5;
 }

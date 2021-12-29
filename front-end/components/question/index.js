@@ -31,20 +31,22 @@ export default function Question({ images, ranking, isAnswered, setRanking }) {
 
   return (
     <div className={styles.container} onChange={updateRanking}>
-      {images.map((image, index) => (
-        <div key={imageReferenceMap[index]} className={styles.imageContainer}>
-          <div className={styles.imageIdContainer}>
-            <p className={styles.imageId}>{imageReferenceMap[index]}</p>
-          </div>
-          <img
-            className={styles.image}
-            src={image}
-            alt="A microfracture scan"
-          />
-        </div>
-      ))}
+      <div className={styles.questions} onChange={updateRanking}>
+        {images.map((image, index) => (
+          <span key={imageReferenceMap[index]} className={styles.imageContainer}>
+            <div className={styles.imageIdContainer}>
+              <p className={styles.imageId}>{imageReferenceMap[index]}</p>
+            </div>
+            <img
+              className={styles.image}
+              src={image}
+              alt="A microfracture scan"
+            />
+          </span>
+        ))}
+      </div>
       {isAnswered ? (
-        <p className={styles.answered}>Question has already been answered</p>
+        <p className={styles.answered}>This question has already been answered</p>
       ) : (
         <div className={styles.answerSection}>
           <span className={styles.titleLeft}>Least Clear</span>
