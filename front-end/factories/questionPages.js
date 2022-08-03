@@ -1,5 +1,5 @@
 export default function createQuestionPages() {
-  const question = "Test loaded images";
+  const question = "Please identify in which image the flaws appear the **strongest** and in which they appear the **weakest**.";
   const numPagesNeeded = 10;
   const minimumImageId = 1;
   const maximumImageId = 20;

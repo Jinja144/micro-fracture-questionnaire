@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReactCommonmark from 'react-commonmark';
 import isAnswerValid from "../../validators/answer";
 import Question from "../question";
 import styles from "./index.module.scss";
@@ -75,7 +76,7 @@ export default function Page({
             setRanking={setRanking}
           />
         ) : null}
-        {text ? <p className={styles.text}>{text}</p> : null}
+        {text ? <p className={styles.text}><ReactCommonmark source={text} /></p> : null}
       </div>
       {error ? <p className={styles.error}>{error}</p> : null}
       {!isFirst ? (

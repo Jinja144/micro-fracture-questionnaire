@@ -13,6 +13,7 @@
     "lint:js:fix": "next lint --fix"
   },
   "dependencies": {
+    "react-commonmark": "^3.0.0",
     "@aws-sdk/client-sqs": "^3.43.0",
     "axios": "^0.24.0",
     "concurrently": "^6.0.0",
