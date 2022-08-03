@@ -10,8 +10,8 @@
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   min-width: 85vw;
-  scroll-snap-type: x mandatory;
   margin: 0 auto 10px;
+  scroll-snap-type: x mandatory;
 
   /* Remove scrollbar from view */
   -ms-overflow-style: none;  /* IE and Edge */
